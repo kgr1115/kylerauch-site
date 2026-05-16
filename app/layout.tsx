@@ -36,6 +36,16 @@ export const metadata: Metadata = {
   authors: [{ name: 'Kyle Rauch' }],
   creator: 'Kyle Rauch',
   metadataBase: new URL('https://kylerauch.com'),
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
   openGraph: {
     title: 'Kyle Rauch — AI-tooling builder & SaaS operator',
     description:
@@ -43,12 +53,21 @@ export const metadata: Metadata = {
     url: 'https://kylerauch.com',
     siteName: 'kylerauch.com',
     type: 'website',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Kyle Rauch — AI-tooling builder & SaaS operator',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Kyle Rauch — AI-tooling builder & SaaS operator',
     description:
       'L2 SaaS escalation operator and AI-tooling builder. CSM / Implementation / SE / AI Trainer.',
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,

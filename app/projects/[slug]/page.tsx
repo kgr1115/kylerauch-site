@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { HERO_PROJECTS, getProject } from '@/lib/projects';
 import ProjectCover from '@/components/ProjectCover';
+import LaserBackdrop from '@/components/LaserBackdrop';
 
 type Props = {
   params: { slug: string };
@@ -40,46 +41,50 @@ export default function CaseStudyPage({ params }: Props) {
   return (
     <main className="min-h-screen pt-24">
       {/* Header — eyebrow + giant headline + meta */}
-      <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-20 pb-16">
-        <p className="font-sans text-label-caps font-semibold text-primary mb-6 uppercase tracking-[0.2em]">
-          {project.category}
-        </p>
-        <h1 className="font-serif text-[44px] md:text-[64px] lg:text-display text-on-surface leading-[1.05] mb-12 max-w-5xl">
-          {project.name}:{' '}
-          <span className="italic text-primary">{project.tagline}</span>
-        </h1>
+      <section className="relative overflow-hidden">
+        <LaserBackdrop opacity={40} />
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-gutter pt-8 border-t border-outline-variant/20">
-          <Meta label="Role" value={project.role} />
-          <Meta label="Duration" value={project.duration} />
-          <Meta
-            label="Repo"
-            value={
-              <a
-                href={project.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:underline break-all"
-              >
-                GitHub →
-              </a>
-            }
-          />
-          {project.liveUrl && (
+        <div className="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-20 pb-16">
+          <p className="font-sans text-label-caps font-semibold text-primary mb-6 uppercase tracking-[0.2em]">
+            {project.category}
+          </p>
+          <h1 className="font-serif text-[44px] md:text-[64px] lg:text-display text-on-surface leading-[1.05] mb-12 max-w-5xl">
+            {project.name}:{' '}
+            <span className="italic text-primary">{project.tagline}</span>
+          </h1>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-gutter pt-8 border-t border-outline-variant/20">
+            <Meta label="Role" value={project.role} />
+            <Meta label="Duration" value={project.duration} />
             <Meta
-              label="Live"
+              label="Repo"
               value={
                 <a
-                  href={project.liveUrl}
+                  href={project.repoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline"
+                  className="text-primary hover:underline break-all"
                 >
-                  Open →
+                  GitHub →
                 </a>
               }
             />
-          )}
+            {project.liveUrl && (
+              <Meta
+                label="Live"
+                value={
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline"
+                  >
+                    Open →
+                  </a>
+                }
+              />
+            )}
+          </div>
         </div>
       </section>
 

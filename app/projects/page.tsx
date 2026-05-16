@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { HERO_PROJECTS } from '@/lib/projects';
 import ProjectCover from '@/components/ProjectCover';
+import LaserBackdrop from '@/components/LaserBackdrop';
 
 export const metadata: Metadata = {
   title: 'Projects — Kyle Rauch',
@@ -20,19 +21,23 @@ export default function ProjectsPage() {
   return (
     <main className="min-h-screen pt-24">
       {/* Header */}
-      <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-20 pb-16">
-        <p className="font-sans text-label-caps font-semibold text-primary mb-6 uppercase tracking-[0.2em]">
-          Selected Works
-        </p>
-        <h1 className="font-serif text-[44px] md:text-[64px] lg:text-display text-on-surface leading-[1.05] mb-8">
-          Selected Works &amp;{' '}
-          <span className="italic text-primary">Digital</span> Experiments
-        </h1>
-        <p className="font-sans text-body-lg text-on-surface-variant max-w-3xl">
-          A curated set of shipping projects where customer-facing rigor meets
-          engineering execution. Each one solves a real workflow problem;
-          none are demos.
-        </p>
+      <section className="relative overflow-hidden">
+        <LaserBackdrop opacity={50} />
+
+        <div className="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-20 pb-16">
+          <p className="font-sans text-label-caps font-semibold text-primary mb-6 uppercase tracking-[0.2em]">
+            Selected Works
+          </p>
+          <h1 className="font-serif text-[44px] md:text-[64px] lg:text-display text-on-surface leading-[1.05] mb-8">
+            Selected Works &amp;{' '}
+            <span className="italic text-primary">Digital</span> Experiments
+          </h1>
+          <p className="font-sans text-body-lg text-on-surface-variant max-w-3xl">
+            A curated set of shipping projects where customer-facing rigor
+            meets engineering execution. Each one solves a real workflow
+            problem; none are demos.
+          </p>
+        </div>
       </section>
 
       <div className="laser-divider max-w-container-max mx-auto" />

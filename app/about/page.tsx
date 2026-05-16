@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import LaserBackdrop from '@/components/LaserBackdrop';
 
 export const metadata: Metadata = {
   title: 'About — Kyle Rauch',
@@ -17,14 +18,16 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen pt-24">
       {/* Hero — portrait + bio */}
-      <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-20 pb-section-gap">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+      <section className="relative overflow-hidden">
+        <LaserBackdrop opacity={55} />
+
+        <div className="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-20 pb-section-gap grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
           {/* Portrait left */}
           <div className="md:col-span-5 relative">
             <div className="aspect-[4/5] rounded-xl overflow-hidden glass-card p-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/Headshot.png"
+                src="/Headshot.webp"
                 alt="Portrait of Kyle Rauch"
                 className="w-full h-full object-cover rounded-lg"
               />
@@ -182,47 +185,71 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="md:col-span-7 md:col-start-6 grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <a
+          <div className="md:col-span-7 md:col-start-6 grid grid-cols-1 gap-4">
+            <ContactMethod
+              label="Email"
+              value="kyle@kylerauch.com"
+              action="Send email"
               href="mailto:kyle@kylerauch.com"
-              className="glass-card rounded-xl p-8 flex flex-col gap-3 transition-colors group rust-glow"
-            >
-              <p className="font-sans text-label-caps font-semibold text-on-surface-variant uppercase tracking-widest">
-                Email
-              </p>
-              <p className="font-serif text-[20px] text-on-surface group-hover:text-primary transition-colors break-all">
-                kyle@kylerauch.com
-              </p>
-            </a>
-            <a
+            />
+            <ContactMethod
+              label="LinkedIn"
+              value="Kyle Rauch"
+              action="Open profile"
               href="https://www.linkedin.com/in/kyle-rauch-b2984a75/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="glass-card rounded-xl p-8 flex flex-col gap-3 transition-colors group rust-glow"
-            >
-              <p className="font-sans text-label-caps font-semibold text-on-surface-variant uppercase tracking-widest">
-                LinkedIn
-              </p>
-              <p className="font-serif text-[20px] text-on-surface group-hover:text-primary transition-colors">
-                Kyle Rauch
-              </p>
-            </a>
-            <a
+              external
+            />
+            <ContactMethod
+              label="GitHub"
+              value="@kgr1115"
+              action="View work"
               href="https://github.com/kgr1115"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="glass-card rounded-xl p-8 flex flex-col gap-3 transition-colors group rust-glow"
-            >
-              <p className="font-sans text-label-caps font-semibold text-on-surface-variant uppercase tracking-widest">
-                GitHub
-              </p>
-              <p className="font-serif text-[20px] text-on-surface group-hover:text-primary transition-colors">
-                @kgr1115
-              </p>
-            </a>
+              external
+            />
           </div>
         </div>
       </section>
     </main>
+  );
+}
+
+function ContactMethod({
+  label,
+  value,
+  action,
+  href,
+  external = false,
+}: {
+  label: string;
+  value: string;
+  action: string;
+  href: string;
+  external?: boolean;
+}) {
+  return (
+    <a
+      href={href}
+      target={external ? '_blank' : undefined}
+      rel={external ? 'noopener noreferrer' : undefined}
+      className="glass-card rounded-xl p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 transition-all group rust-glow hover:border-primary/70"
+    >
+      <span className="min-w-0">
+        <span className="block font-sans text-label-caps font-semibold text-on-surface-variant uppercase tracking-widest">
+          {label}
+        </span>
+        <span className="mt-3 block font-serif text-[22px] leading-snug text-on-surface transition-colors group-hover:text-primary break-words">
+          {value}
+        </span>
+      </span>
+      <span className="shrink-0 inline-flex items-center gap-3 font-sans text-label-caps font-semibold text-primary uppercase tracking-widest">
+        {action}
+        <span
+          aria-hidden="true"
+          className="text-lg leading-none transition-transform group-hover:translate-x-1"
+        >
+          →
+        </span>
+      </span>
+    </a>
   );
 }

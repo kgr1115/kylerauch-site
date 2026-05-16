@@ -2,7 +2,60 @@
 
 **Owner:** Kyle Rauch
 **Started:** 2026-05-16
+**Last updated:** 2026-05-16 (end of session)
 **Goal:** A public-facing personal site that makes the GitHub-builder view of Kyle the default for recruiters and hiring managers, instead of the résumé-CSM view.
+
+---
+
+## ⚡ NEXT STEPS (pick up here next session)
+
+The site is **content-complete on five routes** (`/`, `/projects`, `/projects/[slug]`, `/about`, `/resume`, with `/contact` redirecting to `/about#contact`). Design system is Modern Archetype (warm editorial). Lasers on every page header. Resume page sourced from the real master in Skippy.
+
+**Remaining to ship to kylerauch.com:**
+
+1. **Regenerate resume PDF** (master email was updated kyle.rauch@icloud.com → kyle@kylerauch.com):
+   ```powershell
+   cd C:\Users\kgrau\ai-projects\Skippy\references\job-search
+   node build_resume.js
+   ```
+2. **Copy regenerated PDF into the site**:
+   ```powershell
+   Copy-Item C:\Users\kgrau\ai-projects\Skippy\references\job-search\Kyle_Rauch_Resume_v2.pdf C:\Users\kgrau\ai-projects\kylerauch-site\public\resume.pdf
+   ```
+3. **Verify the build compiles cleanly**:
+   ```powershell
+   cd C:\Users\kgrau\ai-projects\kylerauch-site
+   npm run build
+   ```
+   Should produce an `out/` directory. If any TypeScript / lint errors land, fix them before deploy.
+4. **Commit + push to GitHub** (`kgr1115/kylerauch-site` — repo may need to be created on github.com first):
+   ```powershell
+   git add .
+   git commit -m "Modern Archetype redesign + real resume sync — ready for deploy"
+   gh repo create kgr1115/kylerauch-site --public --source=. --remote=origin --push
+   ```
+5. **Connect Cloudflare Pages** (dash.cloudflare.com → Workers & Pages → Pages → Connect Git):
+   - Framework preset: **Next.js (Static HTML Export)**
+   - Build command: `npm run build`
+   - Build output: `out`
+   - Save and deploy
+6. **Add custom domains** (`kylerauch.com` + `www.kylerauch.com`) in the Pages project → Custom domains.
+7. **Set up Cloudflare Email Routing** (kylerauch.com → Email → Email Routing): `kyle@kylerauch.com` → forwards to `kyle.g.rauch@gmail.com`. Verify destination.
+
+**After live:**
+- Update GitHub bio with `https://kylerauch.com` link
+- Update LinkedIn with same
+- Update master resume header to reference kylerauch.com (already done in markdown — regen PDF picks it up)
+
+**Smaller polish items (not blockers):**
+- Compress `Headshot.png` (currently 1.79 MB) → ideally <500 KB via tinypng.com or convert to WebP
+- Add favicon + OG card image to `public/`
+- Delete deprecated stub files: `components/HeroScene.tsx`, `HeroSceneWrapper.tsx`, `components/scene/*`
+- Populate a real case study body for one project (currently all four /projects/[slug] pages use stub bodies — the master resume has the metric-rich descriptions ready to lift)
+- Tune copy on home + about — placeholders are best-guess
+- Optional: GitHub auto-feed on /projects pulling repos from `github.com/kgr1115` API at build time
+
+---
 
 ---
 
@@ -240,19 +293,19 @@ Respect `prefers-reduced-motion: reduce` system setting. Three.js scene → stat
 
 Each milestone is one focused chunk of work. Tick when shipped.
 
-- [ ] **M0 — Setup.** Directory created, git initialized, threejs-skills installed in `.claude/skills/`, GitHub remote pointed at `kgr1115/kylerauch-site`.
-- [ ] **M1 — Scaffold.** `npx create-next-app` with TS + Tailwind + App Router. Install three, @react-three/fiber, @react-three/drei, @react-three/postprocessing, framer-motion. Wire Montserrat via `next/font/google`. Set up Luminescence design tokens in `tailwind.config.ts` + `app/globals.css`. Push "hello world" homepage that proves the toolchain works.
-- [ ] **M2 — Layout shell.** Nav + footer + page transitions. All four routes stub-rendered. Mobile responsive grid established. No content yet.
-- [ ] **M3 — Hero scene.** Three.js laser/light hero on `/`. Static fallback wired for reduced-motion. 60fps verified on Kyle's hardware.
-- [ ] **M4 — Home content.** Positioning strip + hero project preview cards + footer CTA. Fully styled.
-- [ ] **M5 — Projects page.** 4 hero project detail blocks with content. GitHub auto-feed pulling at build time.
-- [ ] **M6 — About page.** Story, looking-for, certs, personal, résumé PDF.
-- [ ] **M7 — Contact page.** Email links + optional form.
-- [ ] **M8 — Polish pass.** Accessibility audit (WCAG AA contrast, keyboard nav, screen-reader), perf audit (Lighthouse 90+ on all 4 pages), reduced-motion verified, OG images per page, favicon, sitemap, robots.txt.
-- [ ] **M9 — Deploy.** Cloudflare Pages connected to GitHub, kylerauch.com pointed at it, kyle@kylerauch.com email forwarding configured, smoke-test from external network.
-- [ ] **M10 — Promote.** Update GitHub bio with kylerauch.com link, update LinkedIn, update résumé header.
+- [x] **M0 — Setup.** Directory created, git initialized, threejs-skills installed in `.claude/skills/`. GitHub push pending (step in Next Steps above).
+- [x] **M1 — Scaffold.** Next.js 14 + TS + Tailwind + App Router. Three, R3F, drei, postprocessing, framer-motion installed. **Note: Montserrat replaced with Newsreader + Hanken Grotesk in M4.** Luminescence tokens replaced with Modern Archetype tokens in M4.
+- [x] **M2 — Layout shell.** Nav (sticky transparent, scroll-aware, Hire Me CTA) + Footer (3-col + giant wordmark) + all four routes rendered, mobile responsive.
+- [x] **M3 — Hero scene.** Three iterations: Three.js R3F multi-beam (shipped, not loved) → Meng To single WebGL beam (shipped) → dual phased WebGL beams with rust palette (current). Lives in `components/WebGLLaser.tsx` + `components/LaserBackdrop.tsx`. Reduced-motion + no-WebGL fallback wired.
+- [x] **M4 — Modern Archetype redesign (major pivot).** Full design system swap from Luminescence (cool monochrome) to Modern Archetype (warm editorial, rust/clay, serif+sans pairing). Stitch templates in `stitch_rusty_ember_portfolio/` for reference. New tokens, fonts, glass + rust-glow utilities. Home page rebuilt with editorial hero + retinted lasers + Selected Works bento + Capabilities. Lasers added to every page header via `LaserBackdrop` (M4 extension).
+- [x] **M5 — Projects page.** 2-col image-led grid live with category badges. `/projects/[slug]` dynamic case-study template with `generateStaticParams`. Real project covers generated programmatically via `scripts/generate-project-covers.ps1` (4 × 1600×1600 abstract dashboard mockups, all in `public/projects/*/cover.jpg`). GitHub auto-feed NOT shipped — deferred.
+- [x] **M6 — About page.** Merged About + Contact into single route. Portrait + bio hero, "Looking for" section, Credentials, Contact channels at `#contact` anchor. Old `/contact` redirects via meta refresh.
+- [x] **M7 — Resume page (new, not originally planned).** Full editorial resume mirrored from `Skippy/references/job-search/resume-v2-draft.md`. Real timeline (Independent / Clubessential / Fidelity / TQL), real project metrics (97.1% faithfulness, ECE 0.065→0.0004, etc.), education, credentials (Security+ / ITIL 4 / FINRA 7&63), contact sidebar. Download CTA links to `/resume.pdf` — file needs to be regenerated and copied in (see Next Steps).
+- [ ] **M8 — Polish pass.** Accessibility audit (WCAG AA contrast, keyboard nav, screen-reader), perf audit (Lighthouse 90+), reduced-motion verified, OG images per page, favicon, sitemap, robots.txt. **Mostly NOT done.** Headshot still uncompressed at 1.79 MB.
+- [ ] **M9 — Deploy.** Cloudflare Pages + custom domain + email routing. **All pending — see Next Steps section above.**
+- [ ] **M10 — Promote.** Update GitHub bio, LinkedIn, résumé header to reference kylerauch.com.
 
-Target shipping cadence: M1-M2 same session as setup. M3-M5 next major session. M6-M7 quick session. M8-M10 final polish + deploy session.
+Status as of end-of-session 2026-05-16: M0-M7 effectively done. M8 + M9 + M10 remain.
 
 ---
 
@@ -297,5 +350,13 @@ Format: `YYYY-MM-DD — decision — why`.
 - **2026-05-16** — CloudAI-X/threejs-skills installed in `.claude/skills/` — necessary for accurate Three.js codegen against r160+.
 - **2026-05-16** — Cloudflare Pages as recommended host — free, fast edge, Email Routing on same account.
 - **2026-05-16** — Cloudflare Pages locked as host — single-vendor stack (DNS + Pages + Email Routing) outweighs Vercel DX advantage for a low-update-frequency portfolio.
+- **2026-05-16** — Cloudflare Registrar confirmed as domain registrar — DNS already at Cloudflare; no nameserver migration needed at deploy.
+- **2026-05-16** — Contact form: yes, simple form via Web3Forms or Formspree (locked but NOT yet built — current `/about#contact` has channel links only).
+- **2026-05-16** — **Major pivot: Modern Archetype design system replaces Luminescence.** Kyle exported a Stitch redesign with warm editorial palette (rust orange + clay neutrals), serif-sans pairing (Newsreader + Hanken Grotesk), 1280px container, heavier glassmorphism. Original Luminescence direction abandoned mid-session.
+- **2026-05-16** — Lasers retinted to rust palette and kept — work alongside the editorial design.
+- **2026-05-16** — Brand name = "Kyle Rauch" only (not "Modern Archetype" from the Stitch template). Template name was too studio/agency-flavored for Kyle's actual positioning.
+- **2026-05-16** — Resume page added (M7, not originally planned) — mirrors the master at `Skippy/references/job-search/resume-v2-draft.md`. Master email updated kyle.rauch@icloud.com → kyle@kylerauch.com. PDF regen + copy is in Next Steps.
+- **2026-05-16** — Three.js R3F laser approach abandoned for Meng To raw-WebGL single-beam (then doubled). Old R3F files (`HeroScene.tsx`, `HeroSceneWrapper.tsx`, `components/scene/*`) reduced to empty deprecation stubs.
+- **2026-05-16** — Lasers added to every page's header section via `LaserBackdrop` component (signature dual-laser pattern). Per-page opacity tunable.
 - **2026-05-16** — Cloudflare Registrar confirmed as domain registrar — DNS already at Cloudflare; no nameserver migration needed at deploy.
 - **2026-05-16** — Contact form: yes, simple form via Web3Forms or Formspree free tier — slightly lower friction for recruiters than mailto-only.

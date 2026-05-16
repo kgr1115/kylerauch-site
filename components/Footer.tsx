@@ -52,10 +52,10 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Branding Accent — giant wordmark, very low opacity */}
+      {/* Branding Accent — oversized wordmark, very low opacity */}
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-8 text-center opacity-[0.06] overflow-hidden">
-        <p className="font-serif text-[120px] md:text-[200px] lg:text-[240px] font-bold uppercase text-on-surface whitespace-nowrap select-none leading-none tracking-tight">
-          KYLE&nbsp;RAUCH
+        <p className="font-serif text-[72px] sm:text-[88px] md:text-[104px] lg:text-[144px] xl:text-[168px] font-bold uppercase text-on-surface whitespace-normal sm:whitespace-nowrap select-none leading-[0.9]">
+          KYLE RAUCH
         </p>
       </div>
     </footer>

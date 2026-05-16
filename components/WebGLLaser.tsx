@@ -310,7 +310,7 @@ export default function WebGLLaser(props: LaserOptions = {}) {
     }
 
     function render(now: number) {
-      if (!gl) return;
+      if (!gl || !canvas) return;
       const elapsed = (now - startTime) / 1000;
 
       const swayedXOffset =

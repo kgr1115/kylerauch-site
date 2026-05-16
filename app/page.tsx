@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import WebGLLaser from '@/components/WebGLLaser';
+import LaserBackdrop from '@/components/LaserBackdrop';
 import ProjectCover from '@/components/ProjectCover';
 
 /**
@@ -64,29 +64,7 @@ export default function Home() {
     <main className="min-h-screen pt-24">
       {/* HERO */}
       <section className="relative overflow-hidden">
-        {/* Retinted WebGL lasers — rust palette. z-0 (above section bg,
-            below content). pointer-events:none lives on the canvas itself. */}
-        <div className="absolute inset-0 z-0 opacity-60">
-          <WebGLLaser
-            color={[0.7, 0.33, 0.12]}
-            rotationAmplitude={1.0}
-            rotationSpeed={0.08}
-            yMotionAmplitude={2.0}
-            yMotionSpeed={0.55}
-          />
-          <WebGLLaser
-            color={[1.0, 0.71, 0.58]}
-            xOffsetBase={0.18}
-            rotationAmplitude={0.7}
-            rotationSpeed={0.11}
-            rotationPhase={Math.PI / 2}
-            yMotionAmplitude={2.6}
-            yMotionSpeed={0.42}
-            yMotionPhase={Math.PI}
-            swayPhase={Math.PI / 3}
-            className="mix-blend-screen"
-          />
-        </div>
+        <LaserBackdrop opacity={60} />
 
         <div className="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-20 pb-section-gap grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
           {/* Left column — copy */}
@@ -125,7 +103,7 @@ export default function Home() {
             <div className="aspect-[4/5] rounded-xl overflow-hidden glass-card p-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/Headshot.png"
+                src="/Headshot.webp"
                 alt="Portrait of Kyle Rauch"
                 className="w-full h-full object-cover rounded-lg transition-all duration-700 hover:scale-[1.02]"
               />
