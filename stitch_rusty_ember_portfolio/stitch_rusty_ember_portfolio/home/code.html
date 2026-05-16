@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(164, 140, 129, 0.2);
+    }
+    .glass-card:hover {
+      border-color: rgba(164, 140, 129, 0.4);
+    }
+    .rust-glow:hover {
+      box-shadow: 0 0 40px 0 rgba(179, 84, 30, 0.1);
+    }
+    body {
+      background-color: #131313;
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed-variant": "#74350b",
+            "inverse-surface": "#e5e2e1",
+            "surface-tint": "#ffb693",
+            "primary-container": "#b3541e",
+            "on-surface-variant": "#dcc1b5",
+            "on-tertiary-fixed": "#331100",
+            "background": "#131313",
+            "on-tertiary-container": "#fff1ec",
+            "primary-fixed-dim": "#ffb693",
+            "on-primary-fixed-variant": "#7a3000",
+            "surface-container": "#201f1f",
+            "secondary-fixed": "#f8decd",
+            "secondary": "#dbc2b2",
+            "inverse-primary": "#9d440c",
+            "on-surface": "#e5e2e1",
+            "on-secondary-fixed": "#26190f",
+            "error-container": "#93000a",
+            "error": "#ffb4ab",
+            "surface-bright": "#393939",
+            "surface-container-lowest": "#0e0e0e",
+            "on-secondary": "#3d2d22",
+            "on-primary-fixed": "#351000",
+            "surface-container-low": "#1c1b1b",
+            "primary": "#ffb693",
+            "outline-variant": "#56433a",
+            "surface-container-highest": "#353534",
+            "surface-container-high": "#2a2a2a",
+            "on-primary": "#561f00",
+            "tertiary-fixed": "#ffdbca",
+            "inverse-on-surface": "#313030",
+            "on-primary-container": "#fff1ed",
+            "on-secondary-container": "#c9b1a1",
+            "tertiary-fixed-dim": "#ffb690",
+            "surface-dim": "#131313",
+            "tertiary": "#ffb690",
+            "on-secondary-fixed-variant": "#554337",
+            "on-background": "#e5e2e1",
+            "surface-variant": "#353534",
+            "surface": "#131313",
+            "secondary-fixed-dim": "#dbc2b2",
+            "outline": "#a48c81",
+            "tertiary-container": "#a65c30",
+            "on-tertiary": "#542100",
+            "on-error": "#690005",
+            "on-error-container": "#ffdad6",
+            "secondary-container": "#554337",
+            "primary-fixed": "#ffdbcc"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "gutter": "32px",
+            "section-gap": "128px",
+            "container-max": "1280px",
+            "margin-desktop": "64px",
+            "margin-mobile": "24px",
+            "unit": "8px"
+          },
+          "fontFamily": {
+            "headline-lg-mobile": ["Newsreader"],
+            "display": ["Newsreader"],
+            "body-md": ["Hanken Grotesk"],
+            "headline-lg": ["Newsreader"],
+            "body-lg": ["Hanken Grotesk"],
+            "label-caps": ["Hanken Grotesk"],
+            "headline-md": ["Newsreader"]
+          },
+          "fontSize": {
+            "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "display": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+            "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-lg border-b border-outline-variant/20 transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-unit">
+<div class="font-headline-md text-headline-md font-semibold text-on-surface">Modern Archetype</div>
+<nav class="hidden md:flex items-center gap-gutter">
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1 transition-all duration-300 ease-in-out" href="#">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors transition-all duration-300 ease-in-out" href="#">Projects</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors transition-all duration-300 ease-in-out" href="#">Case Study</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors transition-all duration-300 ease-in-out" href="#">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors transition-all duration-300 ease-in-out" href="#">Contact</a>
+</nav>
+<button class="bg-primary-container text-on-primary-container font-label-caps text-label-caps px-6 py-3 rounded-DEFAULT hover:opacity-90 transition-all active:scale-95 uppercase tracking-widest">
+        Hire Me
+      </button>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative pt-40 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-8 lg:col-span-7">
+<span class="font-label-caps text-label-caps text-primary mb-4 block uppercase tracking-[0.2em]">Creative Director &amp; Designer</span>
+<h1 class="font-display text-[56px] md:text-display text-on-surface leading-tight mb-8">
+            Architecting <span class="italic text-primary">digital soul</span> through precise craft.
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-[540px]">
+            I build high-end digital experiences for brands that value intellectual authority and creative warmth. My work balances minimalist precision with organic storytelling.
+          </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-[#B3541E] text-white font-label-caps text-label-caps px-10 py-5 rounded-DEFAULT uppercase tracking-widest hover:brightness-110 transition-all">
+              View My Work
+            </button>
+<button class="border border-outline text-on-surface font-label-caps text-label-caps px-10 py-5 rounded-DEFAULT uppercase tracking-widest hover:bg-surface-variant/10 transition-all">
+              The Process
+            </button>
+</div>
+</div>
+<div class="hidden md:block md:col-span-4 lg:col-span-5 relative">
+<div class="aspect-[4/5] rounded-xl overflow-hidden glass-card p-4">
+<img alt="Portrait" class="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-700" data-alt="A sophisticated, high-contrast portrait of a creative professional in a dark studio setting. The lighting is dramatic and cinematic, with soft shadows defining a minimalist silhouette. The background is a deep charcoal gray, consistent with a dark-mode UI aesthetic. The overall mood is one of calm confidence and creative authority, emphasizing a professional yet artistic persona." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLFZuVTNz0V1WxuU6EOpImT1Nlm9ZwjqgHQl3lrRPUq5XEqhQGsyccf0i1PvWooBsjYolG7Tr-r17_-KE5AuWfh7sS4hSnGksQXlN1CUPctbXkGsHebS03LdH6H2zwOBJM1knEK9CCu3lGnWsk5AhsVY4azGfWeszkhxJhiSKfrUP07BYGZr2GFMhj4uZfCJDWGbTEgCLA8VQtXtM_zGNTfInVLJgCLXIlENJhOQq4lHjw_Q_HmDjeIaCb40p-1HS49sQ1HYntPdrE"/>
+</div>
+<!-- Abstract light element -->
+<div class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-primary/5 rounded-full blur-[100px]"></div>
+</div>
+</div>
+</section>
+<!-- Selected Works Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+<div class="flex justify-between items-end mb-16">
+<div>
+<h2 class="font-headline-lg text-headline-lg md:text-headline-lg text-on-surface mb-4">Selected Works</h2>
+<div class="h-1 w-24 bg-primary"></div>
+</div>
+<a class="hidden md:block font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest flex items-center gap-2" href="#">
+          View All Projects <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+<!-- Bento Grid for Works -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Project 1 (Large) -->
+<div class="md:col-span-8 group cursor-pointer">
+<div class="glass-card rounded-xl overflow-hidden rust-glow transition-all duration-500">
+<div class="aspect-video overflow-hidden">
+<img alt="Project 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="An abstract 3D digital landscape with smooth, flowing topography in shades of deep charcoal and muted copper. The scene is illuminated by a soft, directional light that creates long, elegant shadows. The composition is minimalist and architectural, reflecting a high-end digital craft aesthetic. The mood is serene and technologically sophisticated, perfectly complementing a premium portfolio theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBizPNLjgz6bhJCckxMfVsIgcScBJXC8HOmHnhVxPQBq_50WIzi6CpFW6LdvTWa5eA0jo_lCrEfQScv58GZAgZp2M9PzsZOTReDXZlX5IzE0pfkCKZZ2HO0Ee6JmTvXgns3cdcoz2HJBMb337RELN4wurY-BqXZ-Dl9rduhqaAYKCtCi89QX6ZoCdFIvWOCdKA7w4v7PVLxiCZJLD_GJkIxmtwxF35wo_UltRcU4iOB6Rm9AHpXYerxg7z-YzO11on4NHNTZMlnSyMe"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Aura Editorial</h3>
+<div class="flex gap-2">
+<span class="font-label-caps text-[10px] px-3 py-1 bg-outline-variant/20 rounded-full text-on-surface-variant uppercase tracking-tighter">Identity</span>
+<span class="font-label-caps text-[10px] px-3 py-1 bg-outline-variant/20 rounded-full text-on-surface-variant uppercase tracking-tighter">Web Design</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">north_east</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">A minimalist digital archive for high-fashion editorial, focused on cinematic scrolling and typography hierarchy.</p>
+</div>
+</div>
+</div>
+<!-- Project 2 (Small) -->
+<div class="md:col-span-4 group cursor-pointer">
+<div class="glass-card rounded-xl overflow-hidden h-full rust-glow transition-all duration-500">
+<div class="aspect-[4/5] overflow-hidden">
+<img alt="Project 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A close-up of a minimalist glass sculpture reflecting a palette of warm rust and cool charcoal tones. The glass surfaces are blurred and semi-transparent, echoing the glassmorphism UI style. The lighting is diffused, highlighting the clean edges and organic forms. The image feels architectural and precise, representing modern creative design and high-end visual aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8F12dxh0gPHlqe9rEJULSv054cKxBUMeqOns8Ec5xStbm3CTQ0-lqwE-KtxeN6KcASKLykRqI4z4w187HZzyF26TEnkfCq8LKqHcYjIJkTghCqXf8OLl1ZgBl2BXYSIH1qDUFHYFPldoFQ7QD1vpOh_2PP2Ve3lMP2anEd2MDKwSiMmXEF86a3uXnSZ71vSR-KUvkuhr_ZrW-yDf8FXBs5-_H8_rOt9yxuPGVcmmzALFVr4pu9pU5uyRX0NOEDkGfxU2U1NWPKlxo"/>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-[24px] text-on-surface mb-2">Clay &amp; Glass</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Design System</p>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">north_east</span>
+</div>
+</div>
+</div>
+<!-- Project 3 (Small) -->
+<div class="md:col-span-4 group cursor-pointer">
+<div class="glass-card rounded-xl overflow-hidden h-full rust-glow transition-all duration-500">
+<div class="aspect-[4/5] overflow-hidden">
+<img alt="Project 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A minimalist architectural shot of a modern building facade featuring clean geometric lines and textured surfaces. The color palette is dominated by deep grays and accented with warm natural light hitting a concrete wall. The composition is balanced and asymmetrical, conveying a sense of intellectual authority and structural precision. The mood is calm and professional, aligning with the portfolio's minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA838FHf-WrbiuPAbhB5nn3TqZ8ZtVZMGJ0xmiCR7PcX_u3kcD4txrUCNpkKtPE3AT-o7SkIMoe_drARMalPktRB3lG-fYxxjIgQK7mv4YY_YeYyF0KxzzxDP4ltTIjQWJNestsspJlt9baWM3tjrTaWoZApwT-qjUM13TX7IqIX0IiBMd68pWbkzTLMn5QrPiVRvyVezm9Rq7s32_UXw4UZ2GSC3Vmx5X0E5FjEm4TlolyDe26nfdVWQEivpUgLtlVO9Hi4E5pENX7"/>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-[24px] text-on-surface mb-2">Stark Arches</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Visual Identity</p>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">north_east</span>
+</div>
+</div>
+</div>
+<!-- Project 4 (Large) -->
+<div class="md:col-span-8 group cursor-pointer">
+<div class="glass-card rounded-xl overflow-hidden rust-glow transition-all duration-500">
+<div class="aspect-video overflow-hidden">
+<img alt="Project 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A macro shot of liquid metal flowing across a dark, textured surface, reflecting vibrant sunset-like hues of rust orange and gold. The movement is fluid and organic, contrasting with the dark, solid background. The image represents the intersection of technology and organic craft. The lighting is high-contrast and dramatic, emphasizing the metallic sheen and the rich, warm color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW_k87ssAdfuGZR-YwEVz_pH0t6OPD80Tf-L9nXPWT5aBekoUD8hKWwkAIOa5ZRAqVVMV_KuKKvst8h16ki2MJ3iLdv6NOXaGWghoY7KpN9_BL2uw7Ay2ltBeNev0y0NlxFHBbltgTbGn7PEDxB0DFq9uHUeqAmff0wmKK0lIHozU5MMlZmP0O9Dc_G0ws7K-TYvEY6OMBNWKqBskPrL-qg0pNPNO7KdcIDcOcWGk9zk6AOKyB2fTt0iJNPz9zDVW6QRAxbGtnk8MD"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Fluid Dynamics</h3>
+<div class="flex gap-2">
+<span class="font-label-caps text-[10px] px-3 py-1 bg-outline-variant/20 rounded-full text-on-surface-variant uppercase tracking-tighter">Motion</span>
+<span class="font-label-caps text-[10px] px-3 py-1 bg-outline-variant/20 rounded-full text-on-surface-variant uppercase tracking-tighter">3D Design</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">north_east</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">An immersive 3D experience exploring the relationship between digital interfaces and organic fluid physics.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services / Process Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto bg-surface-container-lowest/50 rounded-full">
+<div class="text-center max-w-[800px] mx-auto mb-20">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-6">Elevating digital through intent.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">I don't just design interfaces; I craft architectural systems that grow with your brand. My process is rooted in deep research and technical precision.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="p-8 border-l border-outline-variant/20 group hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary mb-6 text-[32px]">architecture</span>
+<h4 class="font-headline-md text-[24px] text-on-surface mb-4">Art Direction</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Establishing a visual voice that resonates through high-contrast typography and strategic color theory.</p>
+</div>
+<div class="p-8 border-l border-outline-variant/20 group hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary mb-6 text-[32px]">devices</span>
+<h4 class="font-headline-md text-[24px] text-on-surface mb-4">Digital Craft</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Building responsive, lightning-fast interfaces with a focus on glassmorphism and motion dynamics.</p>
+</div>
+<div class="p-8 border-l border-outline-variant/20 group hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary mb-6 text-[32px]">psychology</span>
+<h4 class="font-headline-md text-[24px] text-on-surface mb-4">Strategic Design</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Aligning business goals with user needs through rigorous research and systematic design thinking.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-surface border-t border-outline-variant/20 transition-opacity duration-200">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+<div class="mb-8 md:mb-0">
+<div class="font-headline-sm text-headline-sm text-on-surface mb-2">Modern Archetype</div>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 Modern Archetype. Crafted with precision.</p>
+</div>
+<div class="flex gap-gutter">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">LinkedIn</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Dribbble</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Instagram</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Email</a>
+</div>
+</div>
+<!-- Branding Accent -->
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-unit text-center opacity-10">
+<h1 class="font-display text-[120px] md:text-[240px] uppercase text-on-surface-variant whitespace-nowrap overflow-hidden select-none">ARCHETYPE</h1>
+</div>
+</footer>
+</body></html>

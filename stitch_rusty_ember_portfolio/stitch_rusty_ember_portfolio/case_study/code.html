@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #121212;
+            color: #e5e2e1;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(164, 140, 129, 0.2);
+        }
+        .glass-card:hover {
+            border-color: rgba(164, 140, 129, 0.4);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#74350b",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-tint": "#ffb693",
+                        "primary-container": "#b3541e",
+                        "on-surface-variant": "#dcc1b5",
+                        "on-tertiary-fixed": "#331100",
+                        "background": "#131313",
+                        "on-tertiary-container": "#fff1ec",
+                        "primary-fixed-dim": "#ffb693",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "surface-container": "#201f1f",
+                        "secondary-fixed": "#f8decd",
+                        "secondary": "#dbc2b2",
+                        "inverse-primary": "#9d440c",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-fixed": "#26190f",
+                        "error-container": "#93000a",
+                        "error": "#ffb4ab",
+                        "surface-bright": "#393939",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-secondary": "#3d2d22",
+                        "on-primary-fixed": "#351000",
+                        "surface-container-low": "#1c1b1b",
+                        "primary": "#ffb693",
+                        "outline-variant": "#56433a",
+                        "surface-container-highest": "#353534",
+                        "surface-container-high": "#2a2a2a",
+                        "on-primary": "#561f00",
+                        "tertiary-fixed": "#ffdbca",
+                        "inverse-on-surface": "#313030",
+                        "on-primary-container": "#fff1ed",
+                        "on-secondary-container": "#c9b1a1",
+                        "tertiary-fixed-dim": "#ffb690",
+                        "surface-dim": "#131313",
+                        "tertiary": "#ffb690",
+                        "on-secondary-fixed-variant": "#554337",
+                        "on-background": "#e5e2e1",
+                        "surface-variant": "#353534",
+                        "surface": "#131313",
+                        "secondary-fixed-dim": "#dbc2b2",
+                        "outline": "#a48c81",
+                        "tertiary-container": "#a65c30",
+                        "on-tertiary": "#542100",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-container": "#554337",
+                        "primary-fixed": "#ffdbcc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "32px",
+                        "section-gap": "128px",
+                        "container-max": "1280px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "24px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Newsreader"],
+                        "display": ["Newsreader"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Newsreader"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-caps": ["Hanken Grotesk"],
+                        "headline-md": ["Newsreader"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 border-b border-outline-variant/20 bg-transparent backdrop-blur-lg">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop py-unit">
+<div class="font-headline-md text-headline-md font-semibold text-on-surface">Modern Archetype</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Projects</a>
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1" href="#">Case Study</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Contact</a>
+</nav>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 font-label-caps uppercase tracking-widest hover:brightness-110 transition-all">
+                Hire Me
+            </button>
+</div>
+</header>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-desktop mb-section-gap">
+<div class="flex flex-col gap-unit mb-12">
+<span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">Architecture &amp; Interior</span>
+<h1 class="font-display text-display max-w-3xl">The Obsidian Pavilion: A Study in Linear Shadows</h1>
+<div class="flex gap-8 mt-6">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Role</span>
+<span class="font-body-md text-body-md">Lead Architect</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Duration</span>
+<span class="font-body-md text-body-md">14 Months</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Location</span>
+<span class="font-body-md text-body-md">Zurich, CH</span>
+</div>
+</div>
+</div>
+<div class="relative w-full aspect-[21/9] overflow-hidden rounded-lg group">
+<img alt="Obsidian Pavilion Architecture" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A cinematic, wide-angle shot of a minimalist obsidian-black architectural structure set against a misty Swiss mountain landscape. The lighting is low-key and dramatic, with soft morning light catching the sharp, geometric edges of the pavilion. The design features floor-to-ceiling glass panels and smooth, matte-black concrete surfaces. The overall mood is ethereal, high-end, and architectural, utilizing a professional dark-mode palette with deep grays and subtle orange light reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdal4vwkulAA5nfR6Pq9u0JAcwuzmRrj0CDgBLmzcDBB6i6QBK9BXTBE3CbujNdTnOw0mAo2CdjXecs4HeqU7S8B9VXLAAbbyM6TJtZeqqCjXr5JuYYLwth8BCZ69SpF3qiXDu53tDeM3aqW9JVQMsCzzsimfCDRbfvPfFciDKW1c4cXK27OIkYNn2oqUpmkDQ5KUmQePVSN5yLqHMdnRYI3skWq3LX2Xd-BtOHFL4VjwlQFMDuhrRZ8CWHdvQ8O-QPv7xaMh2IW71"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent"></div>
+</div>
+</section>
+<!-- Project Brief -->
+<section class="max-w-container-max mx-auto px-margin-desktop mb-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-4">
+<h2 class="font-headline-lg text-headline-lg sticky top-32">The Brief</h2>
+</div>
+<div class="md:col-span-8 flex flex-col gap-8">
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        To design a retreat that functions as both a gallery and a private residence. The client requested a structure that "disappears" into the forest during twilight, emphasizing verticality and the use of sustainable, dark-charcoal-fired timber.
+                    </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter">
+<div class="glass-card p-8 rounded-xl flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary text-4xl">light_mode</span>
+<h3 class="font-headline-md text-headline-md">Natural Rhythm</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">The orientation was calculated to maximize the winter sun while creating complex shadow patterns in the summer months.</p>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary text-4xl">eco</span>
+<h3 class="font-headline-md text-headline-md">Carbon Neutral</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">All materials were sourced within a 50km radius, utilizing reclaimed basalt and Shou Sugi Ban treated cedar.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Process Section -->
+<section class="bg-surface-container-lowest py-section-gap">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="mb-16">
+<span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">The Journey</span>
+<h2 class="font-headline-lg text-headline-lg mt-2">Methodical Execution</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+<div class="flex flex-col gap-12">
+<div class="group">
+<div class="flex items-center gap-4 mb-4">
+<span class="font-display text-headline-lg text-outline-variant/30 group-hover:text-primary transition-colors duration-300">01</span>
+<h3 class="font-headline-md text-headline-md">Site Immersion</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">We spent four weeks on-site during different weather cycles to map the acoustic and visual anchors of the terrain before the first sketch was made.</p>
+</div>
+<div class="relative rounded-lg overflow-hidden glass-card">
+<img alt="Site Analysis" class="w-full grayscale hover:grayscale-0 transition-all duration-500" data-alt="A close-up, high-contrast black and white photograph of an architectural model crafted from dark wood and frosted glass. The model is placed on a minimalist gray surface with a single directed light source creating long, dramatic shadows. The aesthetic is sophisticated and precise, reflecting a professional studio environment. The palette is monochromatic with deep blacks and sharp highlights, emphasizing form and texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1tA2c8ON6gxmk17YhA4_O8tXoAo0v0ASHpexbTvxWVPha6W_jN5DA-6Eq9-FFk-LqFdHlDgwjo1J8vTen2VpIcrSHQKphwfAAqKOP4Y25hg7joUnx4lX-FrKM9MdhottHo9O_ZZuaAJYZvgS_r2rdoGH-41Uws4ofdPIabBRm-h2FVx4xQQ4bUWSVrsFICFGuyjeuHR44Z_GhZrO4T61079wiy9yjEXUmiALXgbrlOPlz-u-xu87t76JnXzpOMCtufAty9iEAFk-m"/>
+</div>
+</div>
+<div class="flex flex-col gap-12 md:mt-32">
+<div class="relative rounded-lg overflow-hidden glass-card">
+<img alt="Material Study" class="w-full grayscale hover:grayscale-0 transition-all duration-500" data-alt="A macro photograph of raw architectural materials: charred black cedar wood, polished dark basalt stone, and a single copper accent plate. The materials are arranged in an asymmetrical, aesthetic composition. The lighting is warm and directional, bringing out the rich textures of the wood grain and the slight shimmer of the copper. The mood is tactile, organic yet modern, fitting a high-end architectural design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2p96c6O9XRTLQ4A9BkAg9q1qIguyVvSKv58dYqT6z2FkAcaK4Hdpn1uBpCzugCal1SvCKkhO1h32AQk-0u5qnZ8GL7MIRUY-RTsuaOP6owiVe1PEyKr6LUcDha6lc5eHmOEr0-QXcFB-KpBRU74VMPtrfLNm5hmBuhGY81EJ2MbipHVUsQm7Ska8NhF7Xqs-lgFzgG1UT7GzFJFwTuE61eCkl4rdHb1qvHdcDNG9ukh_Gi2u1lmw0qjhuoCEgSbZ9mgBmSoHKZQzW"/>
+</div>
+<div class="group">
+<div class="flex items-center gap-4 mb-4">
+<span class="font-display text-headline-lg text-outline-variant/30 group-hover:text-primary transition-colors duration-300">02</span>
+<h3 class="font-headline-md text-headline-md">Tectonic Refinement</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Iterative prototyping of the joint systems allowed us to achieve the 'weightless' ceiling effect, concealing all structural HVAC and electrical conduits within the 15mm seams.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Results Section -->
+<section class="max-w-container-max mx-auto px-margin-desktop py-section-gap">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-5 flex flex-col gap-8">
+<h2 class="font-headline-lg text-headline-lg">Impact &amp; Reflection</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">The Obsidian Pavilion has been recognized with the Architectural Merit Award 2023. Beyond accolades, it stands as a testament to the harmony between radical minimalism and the raw, unyielding nature of the landscape.</p>
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-end border-b border-outline-variant/20 pb-4">
+<span class="font-label-caps text-label-caps uppercase">Energy Efficiency</span>
+<span class="font-display text-headline-md text-primary">+42%</span>
+</div>
+<div class="flex justify-between items-end border-b border-outline-variant/20 pb-4">
+<span class="font-label-caps text-label-caps uppercase">Visitor Satisfaction</span>
+<span class="font-display text-headline-md text-primary">98%</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 grid grid-cols-2 gap-4">
+<img alt="Interior detail 1" class="rounded-lg w-full aspect-square object-cover" data-alt="A detailed shot of a minimalist interior featuring a floor-to-ceiling glass wall that frames a dense, dark forest. Inside, a single low-profile chair sits on a polished black concrete floor. The lighting is soft and diffused, coming from the overcast sky outside. The colors are muted, dominated by charcoal, dark greens from the forest, and a subtle warmth from a hidden light source. The aesthetic is extremely clean, modern, and high-end." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP2plh1ZSPlZePdgKfEwF9viQBTTUi0nuPzK_HwtiObzDAuaqfJ4daBobK-j7oX4SRjsJ1Pnk6ShDNcuE1LGUBFkDycsVNYVWIJFtoodPkVTcZ1eUBOVSJdV2D2dlCVloHOa1hX4uwlIoAD9dofRS0La_sdb4sQYpYoYPEYa-rvFRhf_6I9sNjDEksEUXapeGzVnKvTGhl7ra7wxEkAxolnLucfPQwn3ZxNONV6nUWQxArS14gJf42K1MwTzCnN55vfO7JrTiile6e"/>
+<img alt="Interior detail 2" class="rounded-lg w-full aspect-square object-cover mt-8" data-alt="An architectural detail of a staircase made from floating black metal plates against a textured gray concrete wall. A subtle LED light strip tucked under each step casts a warm rust-orange glow onto the steps below. The composition is highly geometric and abstract. The lighting creates a high-contrast interplay between the deep shadows of the room and the precise, sharp lines of the metal. The style is architectural, minimalist, and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtFh1Wp7Qd0z8Cx8q7W7xURJnUg9BQ7lWdIIVcI2IegDmdjZ3R-RJ7Ln4nqSSUpHX0FcptbUTNFbDtg0UAW-qUQzsdKuM2t04HyqpQNcCOkDR12syaHUzL7P847hQIfn4fJ-TXiSTipRFhHID8tYhfzpxEB5r_cqyf58ufoYY9PYs4I4bAYMKYKiG2oX2QMH5lQSy2i9gLctXYVh3cf3gqDof85o0bAV0MoLW7Sv8a5t7x-7Z276HD08x1OHKFprLcZfEeBv-NR7a2"/>
+</div>
+</div>
+</section>
+<!-- Next Project Navigation -->
+<section class="border-t border-outline-variant/20">
+<a class="group block relative py-24 overflow-hidden" href="#">
+<div class="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out"></div>
+<div class="max-w-container-max mx-auto px-margin-desktop relative z-10 flex justify-between items-center transition-colors duration-500 group-hover:text-on-primary">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps mb-2 opacity-60">Up Next</span>
+<h2 class="font-display text-headline-lg">Ethereal Concrete Office</h2>
+</div>
+<span class="material-symbols-outlined text-display group-hover:translate-x-4 transition-transform duration-500">arrow_forward</span>
+</div>
+</a>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface border-t border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto px-margin-desktop py-section-gap">
+<div class="flex flex-col gap-4 mb-8 md:mb-0">
+<div class="font-headline-sm text-headline-sm text-on-surface">Modern Archetype</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">© 2024 Modern Archetype. Crafted with precision.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">LinkedIn</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Dribbble</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Instagram</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Email</a>
+</div>
+</div>
+</footer>
+</body></html>

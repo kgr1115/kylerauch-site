@@ -1,0 +1,3 @@
+# Library / utility code directory
+# Shared helpers, types, and build-time data fetchers.
+# Examples to come: lib/github.ts (build-time repo feed), lib/projects.ts (hero project data)

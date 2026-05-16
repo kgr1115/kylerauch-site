@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;family=Newsreader:opsz,wght@6-72,400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(164, 140, 129, 0.2);
+            transition: all 0.3s ease-in-out;
+        }
+        .glass-card:hover {
+            border-color: rgba(179, 84, 30, 0.4);
+            box-shadow: 0 0 40px rgba(179, 84, 30, 0.1);
+        }
+        .project-image-container img {
+            transition: transform 0.5s ease-in-out;
+        }
+        .glass-card:hover .project-image-container img {
+            transform: scale(1.05);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed-variant": "#74350b",
+                      "inverse-surface": "#e5e2e1",
+                      "surface-tint": "#ffb693",
+                      "primary-container": "#b3541e",
+                      "on-surface-variant": "#dcc1b5",
+                      "on-tertiary-fixed": "#331100",
+                      "background": "#131313",
+                      "on-tertiary-container": "#fff1ec",
+                      "primary-fixed-dim": "#ffb693",
+                      "on-primary-fixed-variant": "#7a3000",
+                      "surface-container": "#201f1f",
+                      "secondary-fixed": "#f8decd",
+                      "secondary": "#dbc2b2",
+                      "inverse-primary": "#9d440c",
+                      "on-surface": "#e5e2e1",
+                      "on-secondary-fixed": "#26190f",
+                      "error-container": "#93000a",
+                      "error": "#ffb4ab",
+                      "surface-bright": "#393939",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-secondary": "#3d2d22",
+                      "on-primary-fixed": "#351000",
+                      "surface-container-low": "#1c1b1b",
+                      "primary": "#ffb693",
+                      "outline-variant": "#56433a",
+                      "surface-container-highest": "#353534",
+                      "surface-container-high": "#2a2a2a",
+                      "on-primary": "#561f00",
+                      "tertiary-fixed": "#ffdbca",
+                      "inverse-on-surface": "#313030",
+                      "on-primary-container": "#fff1ed",
+                      "on-secondary-container": "#c9b1a1",
+                      "tertiary-fixed-dim": "#ffb690",
+                      "surface-dim": "#131313",
+                      "tertiary": "#ffb690",
+                      "on-secondary-fixed-variant": "#554337",
+                      "on-background": "#e5e2e1",
+                      "surface-variant": "#353534",
+                      "surface": "#131313",
+                      "secondary-fixed-dim": "#dbc2b2",
+                      "outline": "#a48c81",
+                      "tertiary-container": "#a65c30",
+                      "on-tertiary": "#542100",
+                      "on-error": "#690005",
+                      "on-error-container": "#ffdad6",
+                      "secondary-container": "#554337",
+                      "primary-fixed": "#ffdbcc"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "32px",
+                      "section-gap": "128px",
+                      "container-max": "1280px",
+                      "margin-desktop": "64px",
+                      "margin-mobile": "24px",
+                      "unit": "8px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Newsreader"],
+                      "display": ["Newsreader"],
+                      "body-md": ["Hanken Grotesk"],
+                      "headline-lg": ["Newsreader"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "label-caps": ["Hanken Grotesk"],
+                      "headline-md": ["Newsreader"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "display": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                      "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full bg-transparent backdrop-blur-lg border-b border-outline-variant/20 z-50 transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-unit">
+<span class="font-headline-md text-headline-md font-semibold text-on-surface">Modern Archetype</span>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Home</a>
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1" href="#">Projects</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Case Study</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Contact</a>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-label-caps uppercase text-label-caps transition-all duration-300 hover:opacity-90">Hire Me</button>
+</div>
+</nav>
+<main class="pt-32 pb-section-gap">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Header Section -->
+<header class="mb-16 md:mb-section-gap max-w-3xl">
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6">Selected Works &amp; Digital Experiments</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">A curated collection of projects where architectural precision meets creative intuition. Each piece explores the intersection of minimalist aesthetics and functional excellence.</p>
+</header>
+<!-- Projects Grid (Bento Style & Asymmetric) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Project Card 1: Large Feature -->
+<div class="md:col-span-8 group">
+<div class="glass-card rounded-xl overflow-hidden h-full flex flex-col">
+<div class="project-image-container relative aspect-[16/9] overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A sophisticated minimalist workspace featuring a sleek wooden desk, a single designer lamp casting warm rust-colored light, and a high-resolution monitor displaying abstract geometric patterns. The room is enveloped in deep charcoal shadows, creating a calm and professional atmosphere with high-end glassmorphic textures in the foreground. The aesthetic is clean, architectural, and moody, reflecting a dark-mode portfolio style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD9c-LRAyBcx1ubrbHHOZFJYiWFUFttQSRAY7vE98nQKPJkLcba6Tl7Y4BWFaK5B6K6oD45qACYJwfYpAners_bJu0YVoGyRXcn38XsMP_gPPP5VKVmU2LFu_T5b5dVGLXKsCuUZoMoWNHn2EuoU9c0EDsxJtbar4YNO3N7cWC6np9Ltg2RMD-uf13MAL-CI0MFeUNfrlpNkxSYDkMNxpmQOqbaoL_rXSZpLr0wy6rhRrdGBYf8ukLmVQlIQB9D6kZKziR106Cyh6E"/>
+<div class="absolute top-4 right-4">
+<span class="bg-surface-container/80 backdrop-blur-md px-3 py-1 rounded-full text-label-caps font-label-caps text-on-surface-variant border border-outline-variant/20 uppercase">Digital Craft</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Lumina Architectural Branding</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Redefining visual identity for a Swiss architecture firm through systematic design principles.</p>
+<a class="inline-flex items-center gap-2 font-label-caps text-label-caps uppercase text-primary tracking-widest hover:gap-4 transition-all" href="#">
+                                View Project <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Project Card 2: Vertical Small -->
+<div class="md:col-span-4 group">
+<div class="glass-card rounded-xl overflow-hidden h-full flex flex-col">
+<div class="project-image-container relative aspect-[4/5] md:aspect-auto flex-grow overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Abstract 3D render of flowing organic shapes in deep terracotta and muted clay tones, set against a velvet-black background. The lighting is soft and directional, highlighting the smooth textures and sharp edges of the structures. This visual piece represents digital elegance and minimalist artistry, aligning with a high-end portfolio's creative warmth and technical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSWfe5YUHEJ21-hLi_CELKXwLIvyqiARcgB4a56ltXLaL5fWKKi1hjnLT5DETpXfv1sE2NUoaWr6exKlvVYgEBX3L4tWZRa6fvd29xHch0UXlW7-w9mRWaO5kcG3rE649AazzJqs8CKW6O2krNBDeGXOG9zbiXw2OVJP4Gklx9CX34-5E2R3pVIH1uLwxK7JQARVcPlo0igTXlMeuceSjiNdYTC6RY3n4X68N23IMbqAWbwb-zqJ2FTPuI9lD_qzWSUSkhY99x3dKV"/>
+<div class="absolute top-4 right-4">
+<span class="bg-surface-container/80 backdrop-blur-md px-3 py-1 rounded-full text-label-caps font-label-caps text-on-surface-variant border border-outline-variant/20 uppercase">3D Motion</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Fluid Dynamics</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Exploring organic movement in static environments.</p>
+</div>
+</div>
+</div>
+<!-- Project Card 3: Horizontal Middle -->
+<div class="md:col-span-4 group">
+<div class="glass-card rounded-xl overflow-hidden h-full flex flex-col">
+<div class="project-image-container relative aspect-square overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Macro photography of vintage analog tech components, specifically a high-end amplifier knob and brushed metal surface. The lighting is low-key, with dramatic rust-orange highlights picking up the metallic grain and texture. The overall mood is nostalgic yet modern, emphasizing the tactile quality of premium engineering and refined design craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJk1c06cs94I6qMr3MSa0nzd9HxuAm_hkCCVLNEYYPRpCBixWrhKz1E9jWQ4x8DmsmOxN-SrBWViRcmpSTrekbQdrp0lHkF0YWVvhE7cRX61EQI3D5Znk-TgyovRTyal6mx3jFT4W1q7iCBvwfAddxMM-HWnzD85b6wGiEBvN3Mgv6rdUSsX_eIqD5Fl6j1rMr1XMIjR0i55919pWRyovhq3x54mr-Nj89pzYhbIpy_si_K4xDZKqaCU7j0vJWqfiC0-yF5UgYkGWI"/>
+<div class="absolute top-4 right-4">
+<span class="bg-surface-container/80 backdrop-blur-md px-3 py-1 rounded-full text-label-caps font-label-caps text-on-surface-variant border border-outline-variant/20 uppercase">UI Design</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Analog OS</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">A skeuomorphic interface for professional audio hardware controllers.</p>
+</div>
+</div>
+</div>
+<!-- Project Card 4: Long Middle -->
+<div class="md:col-span-8 group">
+<div class="glass-card rounded-xl overflow-hidden h-full flex flex-col">
+<div class="project-image-container relative aspect-[21/9] overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A sprawling night-time satellite view of a futuristic city grid, rendered in deep blues and amber lights. The image conveys high-speed connectivity and complex data structures, styled with a soft-focus lens and high-contrast lighting. This represents technological authority and architectural planning, utilizing the portfolio's core color palette of dark surfaces and warm earthy accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAncYhwiQO3Y7UIf5z8ItKuyQitTtaiAIf9p7bJlB4kNPbodnDkpmo_wms3mLaUMaOnPD5Wfefy1pts-wO5KAwgbLzLeUnr_9-4-ivJSUxOlIy0sL2nUoUGrCqoxaHqcBbtXaVmmZ74IEoFSHQvQ0X4eBTbUz4mtXY9rpiU61ncShrc7-Akax3kbwzN4Pixo2bcvs3HjTFwJCeogsAQt8Arr86oOxMbhMwCjyA5zUKAlw5XXQ6tVh9pTPyOkQuizuGBMwbxF1twV87I"/>
+<div class="absolute top-4 right-4">
+<span class="bg-surface-container/80 backdrop-blur-md px-3 py-1 rounded-full text-label-caps font-label-caps text-on-surface-variant border border-outline-variant/20 uppercase">Data Viz</span>
+</div>
+</div>
+<div class="p-8">
+<div class="flex flex-col md:flex-row justify-between md:items-center gap-4">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Nexus Data Core</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Visualizing global logistics for a cleaner, faster supply chain.</p>
+</div>
+<a class="shrink-0 bg-secondary-container text-on-secondary-container px-6 py-3 rounded-lg font-label-caps uppercase text-label-caps hover:bg-primary-container hover:text-on-primary-container transition-colors" href="#">Case Study</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Project Card 5: Small Square -->
+<div class="md:col-span-6 group">
+<div class="glass-card rounded-xl overflow-hidden h-full flex flex-col">
+<div class="project-image-container relative aspect-[16/10] overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="An abstract minimalist landscape featuring a smooth desert dune at twilight. The sand is a deep, warm rust color against a gradient sky of charcoal and indigo. The scene is incredibly tranquil and perfectly symmetrical, embodying the brand's 'intellectual authority and creative warmth' through natural geometry and high-contrast color tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCX9BELCKQuVygbx9dfkzW4IA7bPD4BtBBq-ZuYIFBSqLYaT0unR5Z4kuBnxpQIxX99khXqXPHOB3Hksu3u0ErbZq9uDMKAzEUmWElKCwGd_7w3NKbbH-24icQ4HVHeCqoXlRRbXsDTeJlbW12aIJqgjRYrjMTRC_KX30K1VNMr8FhaAsQQECQGzhGDWN_kxrjy0zTQf5-Dx23Sv5hrmc8pcinh3oS42Rd9lOq40ZmDxxR2tdx3NCqfSF-UCviWoFci59Re_i1l6ukT"/>
+<div class="absolute top-4 right-4">
+<span class="bg-surface-container/80 backdrop-blur-md px-3 py-1 rounded-full text-label-caps font-label-caps text-on-surface-variant border border-outline-variant/20 uppercase">Art Direction</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Desert Minimal</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">A photography series exploring silence and symmetry in the Mojave.</p>
+</div>
+</div>
+</div>
+<!-- Project Card 6: Small Square -->
+<div class="md:col-span-6 group">
+<div class="glass-card rounded-xl overflow-hidden h-full flex flex-col">
+<div class="project-image-container relative aspect-[16/10] overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Minimalist architectural detail of a concrete spiral staircase in a museum. The lighting comes from a skylight above, creating sharp, precise shadows and highlighting the clean edges of the brutalist structure. The image is monochrome with a subtle rust-toned tint in the shadows, reflecting a sense of 'digital craft' and architectural layout control." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBq3RPUrLFAgv6QSjGB41-q-EsdsVBmLD0hfVqVa-Y29D1S2b8sEBU__pyDGNt_oadHZ0usG7eNATRoDg7G8ScQUNUHH6nOzhujJOFAhsDMV071ZMcHlxjH3r6V_12vLOpsf7aLutE2WMUwR0YP_tDGNMomeroF6qDhK-e4kog7nrKICeNHJpPVW6-We0UGuPehYc36QPuvafUCRqAV-Hlfu06O-Dz76bTPgLd_pY7aTPGBQHL2fvZWnPf9-0bbSDZobL9Y9MD06ocw"/>
+<div class="absolute top-4 right-4">
+<span class="bg-surface-container/80 backdrop-blur-md px-3 py-1 rounded-full text-label-caps font-label-caps text-on-surface-variant border border-outline-variant/20 uppercase">Architecture</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Concrete Rhythms</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Structural photography focusing on the brutalist movement in Eastern Europe.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Load More Section -->
+<div class="mt-section-gap flex flex-col items-center">
+<div class="h-16 w-px bg-gradient-to-b from-primary to-transparent mb-8"></div>
+<button class="font-label-caps text-label-caps uppercase text-on-surface tracking-[0.2em] border border-outline-variant/40 px-12 py-4 hover:border-primary hover:text-primary transition-all duration-300">
+                    Explore Archive
+                </button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-surface border-t border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="font-headline-sm text-headline-sm text-on-surface">Modern Archetype</span>
+<p class="font-body-md text-body-md text-on-surface-variant/60 max-w-sm text-center md:text-left">© 2024 Modern Archetype. Crafted with precision and architectural intent for the modern digital landscape.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">LinkedIn</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Dribbble</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Instagram</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Email</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
