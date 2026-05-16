@@ -1,0 +1,16 @@
+# Cloudflare Workers static-site deploy config for kylerauch.com.
+#
+# Tells Wrangler to deploy the Next.js static-export output in `out/`
+# as static assets (no Worker runtime / no OpenNext adapter).
+# The Workers Builds flow runs `npm run build` (which writes `out/`) and
+# then `npx wrangler deploy`, which reads this file and uploads the assets.
+
+name = "kylerauch-site"
+compatibility_date = "2026-05-16"
+
+[assets]
+directory = "./out"
+# Serve our prerendered 404.html when no asset matches (Next produces this).
+not_found_handling = "404-page"
+# next.config.mjs sets trailingSlash: true, so requests for /about resolve to /about/.
+html_handling = "auto-trailing-slash"
